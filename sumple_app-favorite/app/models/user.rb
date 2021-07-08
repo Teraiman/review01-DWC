@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :like
+  def liked_by?(post_id)
+    like.where(post_id: post_id).exists?
+  end
 end
